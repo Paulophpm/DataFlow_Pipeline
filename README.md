@@ -8,7 +8,7 @@ Criação de um fluxo automatizado de dados em nuvem que é atualizado várias v
 
 ### Problemas:
 
-- Como atualizar de forma contínua ou intervalada, dados de um arquivo excel que é atualizado de forma manual ?;
+- Como atualizar de forma contínua, dados de um arquivo excel que é atualizado de forma manual ?;
 - Como criar um fluxo de dados automatizado com arquivos base do Sharepoint ?;
 - Como tornar o fluxo de dados mais leve para carregar os dados em menos tempo ?;
 - Como restringir a visualização dos dados para que cada equipe visualize apenas os seus dados ?;
@@ -49,15 +49,29 @@ A nova base de dados foi salva dentro ainda do mesmo ambiente nuvem, pois isso �
 
 ### Power Service (Online):
 
-Dentro do Workspace do Power Service, (sendo um usuário PRO), é possível conectar a uma base de dados a partir de uma pasta do Sharepoint. Porém ao invés de apenas conectar a base de dados, foi criado um DataFlow para que seja feito um fluxo contínuo de dados. Com o DataFlow, é possível de além de se conectar com a base de dados que está na nuvem, é possível realizar as etapas de tratamento de dados na nuvem. O Power Service abrirá uma janela que será o Dax Online.
+Dentro do Workspace do Power Service, (sendo um usuário PRO), é possível conectar a uma base de dados a partir de uma pasta do Sharepoint. Porém ao invés de apenas conectar a base de dados, foi criado a conexão através do Fluxo de Dados.
 
-** Para o caso em questão, todas as etapas do ETL foram feitas dentro do Power BI Desktop, assim como o visual, e após finalizado as etapas do ETL, foi feito um copia e cola no ambiente nuvem. Pois mesmo que o ambiente nuvem seja exatamente igual ao ambiente local, na nuvem a realização das etapas do ETL acabam sendo bem mais lento se comparado ao ambiente desktop.
+Com o Fluxo de Dados, é possível de além de se conectar com a base de dados que está na nuvem, é possível realizar as etapas de tratamento desses dados na nuvem. O Power Service abre uma janela que é exatamente igual ao DAX em que você pode realizar as mesmas etapas e os mesmos processos do Power BI Desktop.
+
+** Para o caso em questão, todas as etapas do ETL foram feitas dentro do Power BI Desktop, assim como o visual, e após finalizado as etapas do ETL, você pode selecionar e arrastar as etapas do DAX Desktop para o DAX online. Pois mesmo que o ambiente nuvem seja exatamente igual ao ambiente local, na nuvem o processamento das etapas acaba sendo mais lento
 
 Através do Dataflow também é possível configurar alguns parâmetros rápidos de Aprendizado de Máquina, mas que estará em outro repertório.
 
 ![Untitled (2)](https://user-images.githubusercontent.com/53667656/236357874-73f50c8d-cac8-4dd9-ac61-efad83859e15.png)
 
-Com isso, é necessário fazer agora o agendamentos das atualizações do fluxo de dados, sendo uma atualização do Sharepoint para DataFlow e outra agendamento do Dataflow para o novo banco de dados criado. Assim, já teremos o Dashboard com as informações mais atualizadas, assim como pode ser criado mais de um Dashboard utilizando o mesmo banco de dados.
+O arquivo desktop que foi criado anteriormente para que as etapas do DAX permaneceu ainda dentro do projeto, porém com o objetivo de trazer e testar novas funcionalidades para o fluxo, e trazer novas visualizações para os relatórios.
 
-![image](https://user-images.githubusercontent.com/53667656/236358510-7495e066-4e72-4e88-96d7-e1832bdafcdf.png)
+![Untitled](https://github.com/Paulophpm/DataFlow_Pipeline/assets/53667656/98700869-6e95-4148-abb2-b2f08d38a352)
+
+Mesmo assim, ainda é necessário fazer o agendamentos das atualizações do fluxo de dados, pois da forma como está ainda não está um fluxo contínuo de dados, sendo uma atualização do Sharepoint para DataFlow e outro agendamento do Dataflow para o novo banco de dados criado.
+
+Quando o banco de dados é atualizado, o Dashboard também é atualizado de forma automática, mesmo que existam mais de um relatório que utilize o mesmo banco de dados.
+
+No caso em questão a empresa tem uma plataforma interna para a disponibilização de relatórios, que tem uma conexão direta com o Power Service, e logo quando se é atualizado o relatório, automaticamente o mesmo fica disponível na plataforma de dados.
+
+### O Fluxo Final:
+
+O Fluxo Final consiste em um esquema que une um fluxo de dados com origem do Sharepoint que é atualizado de forma periódica durante o decorrer do dia. Dessa forma foi possível resolver o problema inicial já que era necessário que a criação de um fluxo que inteligassem essas interfaces.
+
+![Untitled (1)](https://github.com/Paulophpm/DataFlow_Pipeline/assets/53667656/bb773d3f-f8bb-4745-892f-95dd8f91b059)
 
